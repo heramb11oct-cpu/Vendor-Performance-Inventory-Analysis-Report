@@ -154,10 +154,7 @@ STORE_COLOR_MAP = {
 # ── Load & cache data ─────────────────────────────────────────────────────────
 @st.cache_data
 def load_data() -> pd.DataFrame:
-    df = pd.read_csv(
-        "C:/Users/heramb/OneDrive/Desktop/Sales Trend and Time-Based Performance Analysis"
-        " for Afficionado Coffee Roasters/data/Transactions.csv"
-    )
+    df = pd.read_csv("data/Transactions.csv")
     df["revenue"]      = df["transaction_qty"] * df["unit_price"]
     df["hour"]         = df["transaction_time"].str.split(":").str[0].astype(int)
     df["minute"]       = df["transaction_time"].str.split(":").str[1].astype(int)
